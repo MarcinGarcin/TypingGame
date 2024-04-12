@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="First commit">
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Init commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
@@ -96,7 +96,8 @@
       <workItem from="1712672207159" duration="1176000" />
       <workItem from="1712756840485" duration="2853000" />
       <workItem from="1712913976632" duration="33000" />
-      <workItem from="1712914495826" duration="299000" />
+      <workItem from="1712914495826" duration="455000" />
+      <workItem from="1712927619629" duration="1187000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -106,7 +107,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712673129319</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Init commit">
+      <option name="closed" value="true" />
+      <created>1712914858750</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712914858750</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Init commit">
+      <option name="closed" value="true" />
+      <created>1712914941350</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712914941350</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +131,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init commit" />
   </component>
 </project>
