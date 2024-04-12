@@ -4,6 +4,7 @@ import java.awt.*;
 public class Window extends JFrame {
     int width = 1280;
     int height = 720;
+    Color bg = new Color(51, 51, 51);
 
     public Window() {
         setPreferredSize(new Dimension(width, height));
@@ -15,8 +16,11 @@ public class Window extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setSize(new Dimension(width, height));
         mainPanel.setLayout(null);
-        mainPanel.setBackground(new Color(51, 51, 51));
-        JTextArea textArea = new JTextArea("Ssij pale");
+        mainPanel.setBackground(bg);
+        mainPanel.setForeground(Color.white);
+        JTextArea textArea = new JTextArea("Press spacebar to play");
+        textArea.setFont(new Font("Arial",Font.BOLD,30));
+
 
         int textWidth = (width - textArea.getPreferredSize().width) / 2;
         int textHeight = (height - textArea.getPreferredSize().height) / 2;
