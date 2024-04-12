@@ -30,6 +30,7 @@ public class Window extends JFrame {
         addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
+                    textArea.stopBlinking();
 
                 }
             }
