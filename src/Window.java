@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class Window extends JFrame {
     int width = 1280;
@@ -17,17 +18,22 @@ public class Window extends JFrame {
         mainPanel.setSize(new Dimension(width, height));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
-        mainPanel.setForeground(Color.white);
-        JTextArea textArea = new JTextArea("Press spacebar to play");
-        textArea.setFont(new Font("Arial",Font.BOLD,30));
-
-
+        BlinkingLabel textArea = new BlinkingLabel("Press spacebar to play");
+        textArea.setForeground(Color.white);
+        textArea.setFont(new Font("Arial", Font.BOLD, 40));
         int textWidth = (width - textArea.getPreferredSize().width) / 2;
         int textHeight = (height - textArea.getPreferredSize().height) / 2;
         textArea.setBounds(textWidth, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
         mainPanel.add(textArea);
         add(mainPanel);
         pack();
+        addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                if (e.getKeyChar() == ' ') {
+
+                }
+            }
+        });
     }
 }
 

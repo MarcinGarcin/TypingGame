@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Init commit">
+      <change afterPath="$PROJECT_DIR$/src/BlinkingLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +98,8 @@
       <workItem from="1712756840485" duration="2853000" />
       <workItem from="1712913976632" duration="33000" />
       <workItem from="1712914495826" duration="455000" />
-      <workItem from="1712927619629" duration="1500000" />
+      <workItem from="1712927619629" duration="1803000" />
+      <workItem from="1712952376907" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -130,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712928916055</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Init commit">
+      <option name="closed" value="true" />
+      <created>1712929430701</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712929430701</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
