@@ -33,13 +33,21 @@ public class Window extends JFrame {
                 if (e.getKeyChar() == ' ') {
                     textArea.stopBlinking();
                     JLabel label = new JLabel("gra");
-                    label.setBounds(textWidth, textHeight + 50, label.getPreferredSize().width, label.getPreferredSize().height);
+                    label.setBounds(x, height / 2, label.getPreferredSize().width, label.getPreferredSize().height);
+                    label.setForeground(Color.white);
                     mainPanel.add(label);
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
+                    Timer timer = new Timer(500, new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            x = x + 10;
+                            label.setLocation(x, height / 2);
+                            mainPanel.revalidate();
+                            mainPanel.repaint();
+                        }
+                    });
+                    timer.start();
                 }
             }
         });
-        pack();
     }
 }
