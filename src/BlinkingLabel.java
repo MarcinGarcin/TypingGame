@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BlinkingLabel extends JLabel {
-    private static final int BLINKING_RATE = 750; // in ms
+    private static final int BLINKING_RATE = 600;
     private Timer timer;
 
     public BlinkingLabel(String text) {

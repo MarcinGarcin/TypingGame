@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame {
+    int x = 0;
     int width = 1280;
     int height = 720;
     Color bg = new Color(51, 51, 51);
@@ -15,7 +16,7 @@ public class Window extends JFrame {
         setLayout(null);
 
         JPanel mainPanel = new JPanel();
-        mainPanel.setSize(new Dimension(width, height));
+        mainPanel.setSize(new Dimension((int) (width*1.2), height));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
         BlinkingLabel textArea = new BlinkingLabel("Press spacebar to play");
@@ -31,10 +32,14 @@ public class Window extends JFrame {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
                     textArea.stopBlinking();
-
+                    JLabel label = new JLabel("gra");
+                    label.setBounds(textWidth, textHeight + 50, label.getPreferredSize().width, label.getPreferredSize().height);
+                    mainPanel.add(label);
+                    mainPanel.revalidate();
+                    mainPanel.repaint();
                 }
             }
         });
+        pack();
     }
 }
-
