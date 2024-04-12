@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Working frame with blinking Label">
-      <change beforePath="$PROJECT_DIR$/src/TextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextField.java" afterDir="false" />
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Working label transform from left to right">
       <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +102,7 @@
       <workItem from="1712913976632" duration="33000" />
       <workItem from="1712914495826" duration="455000" />
       <workItem from="1712927619629" duration="1803000" />
-      <workItem from="1712952376907" duration="2556000" />
+      <workItem from="1712952376907" duration="2896000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -169,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712954635341</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Working label transform from left to right">
+      <option name="closed" value="true" />
+      <created>1712955177394</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712955177394</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +186,7 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="Init commit" />
     <MESSAGE value="Working frame with blinking Label" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working frame with blinking Label" />
+    <MESSAGE value="Working label transform from left to right" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working label transform from left to right" />
   </component>
 </project>

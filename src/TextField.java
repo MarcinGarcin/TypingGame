@@ -8,7 +8,7 @@ public class TextField extends JLabel {
     int height = 100;
 
     public TextField() {
-        setBounds(x,y,width,height);
+        setBounds(0,0,200,200);
         setText("chuj");
         setVisible(true);
         setBackground(Color.red);

@@ -3,51 +3,74 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame {
-    int x = 0;
-    int width = 1280;
-    int height = 720;
-    Color bg = new Color(51, 51, 51);
+    private int x = 0;
+    private int width = 1280;
+    private int height = 720;
+    private Color bg = new Color(51, 51, 51);
+    private JPanel mainPanel;
+    private BlinkingLabel textArea;
 
     public Window() {
+        setupWindow();
+        setupMainPanel();
+        setupTextArea();
+        setupKeyListener();
+    }
+
+    private void setupWindow() {
         setPreferredSize(new Dimension(width, height));
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
+    }
 
-        JPanel mainPanel = new JPanel();
+    private void setupMainPanel() {
+        mainPanel = new JPanel();
         mainPanel.setSize(new Dimension((int) (width*1.2), height));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
-        BlinkingLabel textArea = new BlinkingLabel("Press spacebar to play");
+        add(mainPanel);
+        pack();
+    }
+
+    private void setupTextArea() {
+        textArea = new BlinkingLabel("Press spacebar to play");
         textArea.setForeground(Color.white);
         textArea.setFont(new Font("Arial", Font.BOLD, 40));
         int textWidth = (width - textArea.getPreferredSize().width) / 2;
         int textHeight = (height - textArea.getPreferredSize().height) / 2;
         textArea.setBounds(textWidth, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
         mainPanel.add(textArea);
-        add(mainPanel);
-        pack();
+    }
+
+    private void setupKeyListener() {
         addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
-                    textArea.stopBlinking();
-                    JLabel label = new JLabel("gra");
-                    label.setBounds(x, height / 2, label.getPreferredSize().width, label.getPreferredSize().height);
-                    label.setForeground(Color.white);
-                    mainPanel.add(label);
-                    Timer timer = new Timer(500, new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            x = x + 10;
-                            label.setLocation(x, height / 2);
-                            mainPanel.revalidate();
-                            mainPanel.repaint();
-                        }
-                    });
-                    timer.start();
+                    handleSpacebarPress();
                 }
             }
         });
+    }
+
+    private void handleSpacebarPress() {
+        textArea.stopBlinking();
+        JLabel label = new JLabel("gra");
+        mainPanel.add(label);
+        Timer timer = new Timer(200, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                moveLabel(label);
+            }
+        });
+        timer.start();
+    }
+
+    private void moveLabel(JLabel label) {
+        x = x + 10;
+        label.setLocation(500, 500 / 2);
+        mainPanel.revalidate();
+        mainPanel.repaint();
     }
 }
