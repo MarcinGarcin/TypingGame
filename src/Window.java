@@ -1,6 +1,8 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Window extends JFrame {
     private int x = 0;
@@ -8,40 +10,57 @@ public class Window extends JFrame {
     private int height = 720;
     private Color bg = new Color(51, 51, 51);
     private JPanel mainPanel;
-    private BlinkingLabel textArea;
+    private BlinkingLabel startTextArea;
+    private JLabel textArea;
+    private ArrayList<JLabel> textAreas;
+    private GameEngine gameEngine;
 
     public Window() {
         setupWindow();
         setupMainPanel();
-        setupTextArea();
+        setupStartTextArea();
+        setupTextAreas();
         setupKeyListener();
+        gameEngine = new GameEngine(width, height, mainPanel);
     }
 
     private void setupWindow() {
         setPreferredSize(new Dimension(width, height));
         setVisible(true);
+        requestFocusInWindow();
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
+        setFocusable(true);
     }
+
 
     private void setupMainPanel() {
         mainPanel = new JPanel();
-        mainPanel.setSize(new Dimension((int) (width*1.2), height));
+        mainPanel.setSize(new Dimension(width, height));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
         add(mainPanel);
         pack();
     }
-
-    private void setupTextArea() {
-        textArea = new BlinkingLabel("Press spacebar to play");
+    private void setupStartTextArea() {
+        startTextArea = new BlinkingLabel("Press spacebar to play");
+        startTextArea.setForeground(Color.white);
+        startTextArea.setFont(new Font("Arial", Font.BOLD, 40));
+        int textWidth = (width - startTextArea.getPreferredSize().width) / 2;
+        int textHeight = (height - startTextArea.getPreferredSize().height) / 2;
+        startTextArea.setBounds(textWidth, textHeight, startTextArea.getPreferredSize().width, startTextArea.getPreferredSize().height);
+        mainPanel.add(startTextArea);
+    }
+    private void setupTextArea(){
+        textArea = new JLabel("example");
         textArea.setForeground(Color.white);
-        textArea.setFont(new Font("Arial", Font.BOLD, 40));
-        int textWidth = (width - textArea.getPreferredSize().width) / 2;
-        int textHeight = (height - textArea.getPreferredSize().height) / 2;
-        textArea.setBounds(textWidth, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
+        textArea.setFont(new Font("Arial", Font.BOLD, 15));
+        int textWidth = (width - startTextArea.getPreferredSize().width) / 2;
+        int textHeight = (height - startTextArea.getPreferredSize().height) / 2;
+        textArea.setBounds(0, textHeight, startTextArea.getPreferredSize().width, startTextArea.getPreferredSize().height);
         mainPanel.add(textArea);
+        textArea.setVisible(false);
     }
 
     private void setupKeyListener() {
@@ -49,28 +68,38 @@ public class Window extends JFrame {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
                     handleSpacebarPress();
+                } else {
+                    gameEngine.handleKeyPress(e.getKeyChar());
                 }
             }
         });
     }
 
     private void handleSpacebarPress() {
-        textArea.stopBlinking();
-        JLabel label = new JLabel("gra");
-        mainPanel.add(label);
-        Timer timer = new Timer(200, new ActionListener() {
+        startTextArea.stopBlinking();
+        textArea.setVisible(true);
+        gameEngine.startGame();
+        Timer Timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                moveLabel(label);
+                mainPanel.revalidate();
+                mainPanel.repaint();
             }
         });
-        timer.start();
+        Timer.start();
     }
-
-    private void moveLabel(JLabel label) {
-        x = x + 10;
-        label.setLocation(500, 500 / 2);
-        mainPanel.revalidate();
-        mainPanel.repaint();
+    private void setupTextAreas(){
+        textAreas = new ArrayList<>();
+        for (int i = 0; i < 5; i++) { // Utwórz 5 JLabel-ów
+            JLabel textArea = new JLabel("example" + i);
+            textArea.setForeground(Color.white);
+            textArea.setFont(new Font("Arial", Font.BOLD, 15));
+            int textWidth = (width - textArea.getPreferredSize().width) / 2;
+            int textHeight = (height - textArea.getPreferredSize().height) / 2 + i * 50; // Rozmieść etykiety wertykalnie
+            textArea.setBounds(0, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
+            mainPanel.add(textArea);
+            textArea.setVisible(false);
+            textAreas.add(textArea);
+        }
     }
 }
