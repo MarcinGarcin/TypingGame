@@ -12,6 +12,8 @@ public class GameEngine {
     private List<JLabel> labels;
     private List<String> words;
     private int currentWordIndex = 0;
+    private String currentWord = "example";
+    private int currentCharIndex = 0;
 
     public GameEngine(int panelWidth, int panelHeight, JPanel panel){
         this.panelWidth = panelWidth;
@@ -25,18 +27,21 @@ public class GameEngine {
             label.setForeground(Color.CYAN);
             panel.add(label);
             labels.add(label);
+            label.setVisible(false); // Ustaw etykiety na niewidoczne na początku
         }
     }
 
     public void startGame(){
+
         new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Random rand = new Random();
-                int y = rand.nextInt(panelHeight - 50); // 50 to wysokość etykiety
+                int y = rand.nextInt(panelHeight - 50);
                 JLabel currentLabel = labels.get(currentWordIndex);
                 currentLabel.setLocation(0, y);
                 currentLabel.setVisible(true);
+                currentLabel.setForeground(Color.WHITE);
 
                 new Timer(100, new ActionListener() {
                     @Override
@@ -53,5 +58,16 @@ public class GameEngine {
                 }).start();
             }
         }).start();
+    }
+
+    public void handleKeyPress(char keyChar) {
+        if (currentWord.charAt(currentCharIndex) == keyChar) {
+            currentCharIndex++;
+            if (currentCharIndex == currentWord.length()) {
+                currentCharIndex = 0;
+                currentWord = words.get(currentWordIndex);
+            }
+        } else {
+        }
     }
 }

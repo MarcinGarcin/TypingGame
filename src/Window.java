@@ -77,7 +77,6 @@ public class Window extends JFrame {
 
     private void handleSpacebarPress() {
         startTextArea.stopBlinking();
-        textArea.setVisible(true);
         gameEngine.startGame();
         Timer Timer = new Timer(1000, new ActionListener() {
             @Override
@@ -90,12 +89,12 @@ public class Window extends JFrame {
     }
     private void setupTextAreas(){
         textAreas = new ArrayList<>();
-        for (int i = 0; i < 5; i++) { // Utwórz 5 JLabel-ów
+        for (int i = 0; i < 5; i++) {
             JLabel textArea = new JLabel("example" + i);
             textArea.setForeground(Color.white);
             textArea.setFont(new Font("Arial", Font.BOLD, 15));
             int textWidth = (width - textArea.getPreferredSize().width) / 2;
-            int textHeight = (height - textArea.getPreferredSize().height) / 2 + i * 50; // Rozmieść etykiety wertykalnie
+            int textHeight = (height - textArea.getPreferredSize().height) / 2 + i * 50;
             textArea.setBounds(0, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
             mainPanel.add(textArea);
             textArea.setVisible(false);
