@@ -14,21 +14,15 @@ public class GameEngine {
     private int currentWordIndex = 0;
     private String currentWord = "example";
     private int currentCharIndex = 0;
+    private JPanel panel;
 
     public GameEngine(int panelWidth, int panelHeight, JPanel panel){
         this.panelWidth = panelWidth;
         this.panelHeight = panelHeight;
         this.labels = new ArrayList<>();
-        this.words = List.of("example1", "example2", "example3"); // Dodaj swoje słowa tutaj
+        this.words = List.of("example1", "example2", "example3");
+        this.panel = panel;
 
-        for (String word : words) {
-            JLabel label = new JLabel(word);
-            label.setFont(new Font("Arial", Font.BOLD, 40));
-            label.setForeground(Color.CYAN);
-            panel.add(label);
-            labels.add(label);
-            label.setVisible(false); // Ustaw etykiety na niewidoczne na początku
-        }
     }
 
     public void startGame(){
@@ -49,9 +43,11 @@ public class GameEngine {
                         int x = currentLabel.getLocation().x;
                         if (x < panelWidth) {
                             currentLabel.setLocation(x + 10, y);
+                            System.out.println(currentLabel.getLocation());
+                            panel.revalidate();
+                            panel.repaint();
                         } else {
                             ((Timer)e.getSource()).stop();
-                            currentLabel.setVisible(false);
                             currentWordIndex = (currentWordIndex + 1) % words.size();
                         }
                     }

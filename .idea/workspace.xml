@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="pls work">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="nie działa i chuj">
       <change beforePath="$PROJECT_DIR$/src/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
@@ -105,7 +104,7 @@
       <workItem from="1712914495826" duration="455000" />
       <workItem from="1712927619629" duration="1803000" />
       <workItem from="1712952376907" duration="3057000" />
-      <workItem from="1713046071259" duration="5336000" />
+      <workItem from="1713046071259" duration="5659000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -195,7 +194,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713051396981</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="nie działa i chuj">
+      <option name="closed" value="true" />
+      <created>1713052160026</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713052160026</updated>
+    </task>
+    <task id="LOCAL-00013" summary="nie działa i chuj">
+      <option name="closed" value="true" />
+      <created>1713052184883</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713052184883</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +222,7 @@
     <MESSAGE value="Working frame with blinking Label" />
     <MESSAGE value="Working label transform from left to right" />
     <MESSAGE value="pls work" />
-    <option name="LAST_COMMIT_MESSAGE" value="pls work" />
+    <MESSAGE value="nie działa i chuj" />
+    <option name="LAST_COMMIT_MESSAGE" value="nie działa i chuj" />
   </component>
 </project>

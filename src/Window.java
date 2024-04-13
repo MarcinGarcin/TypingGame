@@ -52,16 +52,7 @@ public class Window extends JFrame {
         startTextArea.setBounds(textWidth, textHeight, startTextArea.getPreferredSize().width, startTextArea.getPreferredSize().height);
         mainPanel.add(startTextArea);
     }
-    private void setupTextArea(){
-        textArea = new JLabel("example");
-        textArea.setForeground(Color.white);
-        textArea.setFont(new Font("Arial", Font.BOLD, 15));
-        int textWidth = (width - startTextArea.getPreferredSize().width) / 2;
-        int textHeight = (height - startTextArea.getPreferredSize().height) / 2;
-        textArea.setBounds(0, textHeight, startTextArea.getPreferredSize().width, startTextArea.getPreferredSize().height);
-        mainPanel.add(textArea);
-        textArea.setVisible(false);
-    }
+
 
     private void setupKeyListener() {
         addKeyListener(new KeyAdapter() {
@@ -78,7 +69,7 @@ public class Window extends JFrame {
     private void handleSpacebarPress() {
         startTextArea.stopBlinking();
         gameEngine.startGame();
-        Timer Timer = new Timer(1000, new ActionListener() {
+        Timer Timer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.revalidate();
@@ -96,7 +87,6 @@ public class Window extends JFrame {
             int textHeight = (height - textArea.getPreferredSize().height) / 2 + i * 50;
             textArea.setBounds(0, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
             mainPanel.add(textArea);
-            textArea.setVisible(false);
             textAreas.add(textArea);
         }
     }
