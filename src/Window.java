@@ -93,7 +93,6 @@ public class Window extends JFrame {
             JLabel textArea = new JLabel("example" + i);
             textArea.setForeground(Color.white);
             textArea.setFont(new Font("Arial", Font.BOLD, 15));
-            int textWidth = (width - textArea.getPreferredSize().width) / 2;
             int textHeight = (height - textArea.getPreferredSize().height) / 2 + i * 50;
             textArea.setBounds(0, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
             mainPanel.add(textArea);
