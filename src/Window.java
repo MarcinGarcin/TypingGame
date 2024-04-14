@@ -11,7 +11,6 @@ public class Window extends JFrame {
     private Color bg = new Color(51, 51, 51);
     private JPanel mainPanel;
     private BlinkingLabel startTextArea;
-    private JLabel textArea;
     private ArrayList<JLabel> textAreas;
     private GameEngine gameEngine;
 
@@ -21,7 +20,7 @@ public class Window extends JFrame {
         setupStartTextArea();
         setupTextAreas();
         setupKeyListener();
-        gameEngine = new GameEngine(width, height, mainPanel);
+        gameEngine = new GameEngine(mainPanel,textAreas);
     }
 
     private void setupWindow() {
@@ -59,8 +58,6 @@ public class Window extends JFrame {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
                     handleSpacebarPress();
-                } else {
-                    gameEngine.handleKeyPress(e.getKeyChar());
                 }
             }
         });
