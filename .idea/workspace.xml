@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="nie działa i chuj">
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Fixed multicliking space button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +108,10 @@
       <workItem from="1713046071259" duration="6468000" />
       <workItem from="1713178013003" duration="2683000" />
       <workItem from="1713187599194" duration="1805000" />
+      <workItem from="1713200044546" duration="36000" />
+      <workItem from="1713207346100" duration="22000" />
+      <workItem from="1713207534736" duration="780000" />
+      <workItem from="1713214084409" duration="2788000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -246,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713180603219</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed multicliking space button">
+      <option name="closed" value="true" />
+      <created>1713215898776</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713215898776</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +270,7 @@
     <MESSAGE value="Working label transform from left to right" />
     <MESSAGE value="pls work" />
     <MESSAGE value="nie działa i chuj" />
-    <option name="LAST_COMMIT_MESSAGE" value="nie działa i chuj" />
+    <MESSAGE value="Fixed multicliking space button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed multicliking space button" />
   </component>
 </project>
