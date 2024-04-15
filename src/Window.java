@@ -58,6 +58,7 @@ public class Window extends JFrame {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
                     handleSpacebarPress();
+
                     removeKeyListener(this);
 
                 }
