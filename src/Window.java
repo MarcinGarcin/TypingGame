@@ -19,7 +19,7 @@ public class Window extends JFrame {
         setupMainPanel();
         setupStartTextArea();
         setupKeyListener();
-        labelOperator = new LabelOperator(mainPanel);
+
     }
 
     private void setupWindow() {
@@ -64,7 +64,7 @@ public class Window extends JFrame {
 
     private void handleSpacebarPress() {
         startTextArea.stopBlinking();
-        labelOperator.startGame();
+        new LabelOperator(mainPanel);
         Timer Timer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

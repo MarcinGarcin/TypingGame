@@ -8,27 +8,22 @@ import java.util.Random;
 public class LabelOperator {
     private JPanel panel;
     private Timer timer;
-    private ArrayList<JLabel> labels;
+    public ArrayList<JLabel> labels;
 
     public LabelOperator(JPanel panel ){
         this.panel = panel;
+        setupTextArea();
+        startGame();
     }
 
     void startGame(){
-        //setupTextArea();
-        JLabel label = new JLabel("chuj");
-        label.setBounds(500,500,200,100);
-        label.setForeground(Color.white);
-        label.setVisible(true);
-        label.setFont(new Font("Arial",Font.BOLD,20));
-        panel.add(label);
-        timer = new Timer(3, new ActionListener() {
+        setupTextArea();
+        timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                label.setLocation(label.getX()+1, label.getY());
-                System.out.println(label.getX());
-
-
+                JLabel currentLabel = labels.get(0);
+                currentLabel.setLocation(currentLabel.getX()+10, currentLabel.getY());
+                currentLabel.setText("Masny kurwa ben");
                 panel.repaint();
                 panel.revalidate();
             }
@@ -37,9 +32,17 @@ public class LabelOperator {
 
     }
     private void setupTextArea(){
-        JLabel label = new JLabel("chuj");
-        label.setLocation(500,500);
-        labels.add(label);
+        labels = new ArrayList<JLabel>();
+        Random rand = new Random();
+        for(int i = 0;i<10;i++){
+            JLabel label = new JLabel("label"+i);
+            label.setBounds(-100,rand.nextInt(720),200,50);
+            label.setForeground(Color.white);
+            label.setFont(new Font("Arial",Font.BOLD,20));
+            label.setVisible(true);
+            panel.add(label);
+            labels.add(label);
+        }
 
     }
 
