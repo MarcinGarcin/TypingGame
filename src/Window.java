@@ -18,9 +18,8 @@ public class Window extends JFrame {
         setupWindow();
         setupMainPanel();
         setupStartTextArea();
-        setupTextAreas();
         setupKeyListener();
-        gameEngine = new GameEngine(mainPanel,textAreas);
+        gameEngine = new GameEngine(mainPanel);
     }
 
     private void setupWindow() {
@@ -36,7 +35,7 @@ public class Window extends JFrame {
 
     private void setupMainPanel() {
         mainPanel = new JPanel();
-        mainPanel.setSize(new Dimension(width, height));
+        mainPanel.setSize(new Dimension((int) (width*1.2), height));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
         add(mainPanel);
@@ -75,16 +74,5 @@ public class Window extends JFrame {
         });
         Timer.start();
     }
-    private void setupTextAreas(){
-        textAreas = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            JLabel textArea = new JLabel("example" + i);
-            textArea.setForeground(Color.white);
-            textArea.setFont(new Font("Arial", Font.BOLD, 15));
-            int textHeight = (height - textArea.getPreferredSize().height) / 2 + i * 50;
-            textArea.setBounds(0, textHeight, textArea.getPreferredSize().width, textArea.getPreferredSize().height);
-            mainPanel.add(textArea);
-            textAreas.add(textArea);
-        }
-    }
+
 }
