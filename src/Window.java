@@ -38,6 +38,7 @@ public class Window extends JFrame {
         mainPanel.setSize(new Dimension((int) (width*1.2), height));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
+        mainPanel.setFocusable(true);
         add(mainPanel);
         pack();
     }
@@ -57,6 +58,8 @@ public class Window extends JFrame {
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == ' ') {
                     handleSpacebarPress();
+                    removeKeyListener(this);
+
                 }
             }
         });
