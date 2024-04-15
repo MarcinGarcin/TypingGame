@@ -20,8 +20,8 @@ public class LabelOperator {
     void startGame(){
         setupTextArea();
         timers = new ArrayList<Timer>();
-        for (int i = 0; i < 4; i++) {
-            final int finalIndex = i; // Dodajemy tę linię
+        for (int i = 0; i < 20; i++) {
+            final int finalIndex = i;
             keyTyper(labels.get(finalIndex));
             Timer timer = new Timer(100, new ActionListener() {
                 @Override
@@ -34,7 +34,7 @@ public class LabelOperator {
                 }
             });
             timers.add(timer);
-            int delay = rand.nextInt(5000); // Losowe opóźnienie do 5 sekund
+            int delay = rand.nextInt(10000);
             new Timer(delay, new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     timer.start();
