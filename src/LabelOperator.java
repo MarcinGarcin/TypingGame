@@ -31,6 +31,7 @@ public class LabelOperator {
                     currentLabel.setText("chuj");
                     panel.repaint();
                     panel.revalidate();
+
                 }
             });
             timers.add(timer);
