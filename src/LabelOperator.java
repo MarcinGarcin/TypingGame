@@ -53,7 +53,7 @@ public class LabelOperator {
         rand = new Random();
         for(int i = 0;i<10;i++){
             JLabel label = new JLabel("label"+i);
-            label.setBounds(-100,rand.nextInt(720),200,50);
+            label.setBounds(-200,rand.nextInt(680),200,50);
             label.setForeground(Color.white);
             label.setFont(new Font("Arial",Font.BOLD,20));
             label.setVisible(true);

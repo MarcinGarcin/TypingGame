@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="moving multiple labels to the right">
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="getting random text from list and setting it as label text">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
     </list>
@@ -30,9 +30,6 @@
     &quot;assignee&quot;: &quot;MarcinGarcin&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="7b747912-0f39-4acc-82f2-0b11d0b2f8e4" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MarcinGarcin/TypingGame.git&quot;,
@@ -116,7 +113,7 @@
       <workItem from="1713207534736" duration="780000" />
       <workItem from="1713214084409" duration="3203000" />
       <workItem from="1713217444820" duration="1348000" />
-      <workItem from="1713266214272" duration="442000" />
+      <workItem from="1713266214272" duration="2060000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -342,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713222270676</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="getting random text from list and setting it as label text">
+      <option name="closed" value="true" />
+      <created>1713266881464</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1713266881464</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +362,8 @@
     <MESSAGE value="nie działa i chuj" />
     <MESSAGE value="Fixed multicliking space button" />
     <MESSAGE value="moving multiple labels to the right" />
-    <option name="LAST_COMMIT_MESSAGE" value="moving multiple labels to the right" />
+    <MESSAGE value="getting random text from list and setting it as label text" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting random text from list and setting it as label text" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
