@@ -43,7 +43,6 @@ public class LabelOperator {
                     timer.start();
                 }
             }).start();
-
         }
     }
 
