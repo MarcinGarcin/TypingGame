@@ -34,7 +34,6 @@ public class LabelOperator {
                     currentLabel.setLocation(currentLabel.getX()+10, currentLabel.getY());
                     panel.repaint();
                     panel.revalidate();
-
                 }
             });
             timers.add(timer);
