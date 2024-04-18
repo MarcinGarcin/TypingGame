@@ -19,7 +19,6 @@ public class Window extends JFrame {
         setupMainPanel();
         setupStartTextArea();
         setupKeyListener();
-
     }
 
     private void setupWindow() {
@@ -59,7 +58,6 @@ public class Window extends JFrame {
                 if (e.getKeyChar() == ' ') {
                     handleSpacebarPress();
                     removeKeyListener(this);
-
                 }
             }
         });
