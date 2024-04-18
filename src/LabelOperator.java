@@ -15,9 +15,13 @@ public class LabelOperator {
     private Random rand;
 
     public LabelOperator(JPanel panel){
+
         this.panel = panel;
+
         setupTextArea();
+
         startGame();
+
     }
 
     void startGame(){
