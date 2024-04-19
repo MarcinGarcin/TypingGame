@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Almost working but not as intended">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -113,6 +115,7 @@
       <workItem from="1713217444820" duration="1348000" />
       <workItem from="1713266214272" duration="3246000" />
       <workItem from="1713500488434" duration="3119000" />
+      <workItem from="1713522975412" duration="1751000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
