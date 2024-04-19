@@ -72,7 +72,7 @@ public class LabelOperator {
             public void keyTyped(KeyEvent e) {
                 if (!labels.isEmpty()) {
                     JLabel currentLabel = labels.get(0);
-                    String labelText = currentLabel.getText().replaceAll("<[^>]*>", ""); // Remove HTML tags
+                    String labelText = currentLabel.getText().replaceAll("<[^>]*>", "");
                     playerInput += e.getKeyChar();
                     if (playerInput.equals(labelText.substring(0, playerInput.length()))) {
                         correctChars = playerInput.length();
