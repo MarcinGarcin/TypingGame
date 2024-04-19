@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="getting random text from list and setting it as label text">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="Almost working but not as intended">
       <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +112,7 @@
       <workItem from="1713214084409" duration="3203000" />
       <workItem from="1713217444820" duration="1348000" />
       <workItem from="1713266214272" duration="3246000" />
-      <workItem from="1713500488434" duration="1954000" />
+      <workItem from="1713500488434" duration="3119000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -355,7 +354,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713268559853</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Almost working but not as intended">
+      <option name="closed" value="true" />
+      <created>1713502625005</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1713502625005</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Almost working but not as intended">
+      <option name="closed" value="true" />
+      <created>1713504048080</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1713504048080</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +386,8 @@
     <MESSAGE value="Fixed multicliking space button" />
     <MESSAGE value="moving multiple labels to the right" />
     <MESSAGE value="getting random text from list and setting it as label text" />
-    <option name="LAST_COMMIT_MESSAGE" value="getting random text from list and setting it as label text" />
+    <MESSAGE value="Almost working but not as intended" />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost working but not as intended" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

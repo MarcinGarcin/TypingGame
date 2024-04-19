@@ -66,6 +66,7 @@ public class LabelOperator {
         panel.requestFocusInWindow();
         panel.addKeyListener(new KeyAdapter() {
             private String playerInput = "";
+            private String incorrectText = "";
             private int correctChars = 0;
 
             @Override
@@ -76,7 +77,7 @@ public class LabelOperator {
                     playerInput += e.getKeyChar();
                     if (playerInput.equals(labelText.substring(0, playerInput.length()))) {
                         correctChars = playerInput.length();
-                        updateLabelColor(currentLabel, correctChars);
+                        updateLabelColor(currentLabel, correctChars,incorrectText);
                         if (correctChars == labelText.length()) {
                             currentLabel.setLocation(0, currentLabel.getY());
                             System.out.println(currentLabel.getLocation());
@@ -92,10 +93,10 @@ public class LabelOperator {
         });
     }
 
-    private void updateLabelColor(JLabel label, int correctChars) {
+    private void updateLabelColor(JLabel label, int correctChars,String incorrectText) {
         String text = label.getText();
         String correctText = text.substring(0, correctChars);
         String remainingText = text.substring(correctChars);
-        label.setText("<html><font color='green'>" + correctText + "</font><font color='white'>" + remainingText + "</font></html>");
+        label.setText("<html><font color='green'>" + correctText +"</font><font color='red'>" + incorrectText + "</font></html>" + "</font><font color='white'>" + remainingText + "</font></html>");
     }
 }
