@@ -26,21 +26,16 @@ public class LabelOperator {
         for (int i = 0; i < textFramesAmount; i++) {
             final int finalIndex = i;
             JLabel currentLabel = labels.get(finalIndex);
-            currentLabel.setText(texts[rand.nextInt(texts.length)]);
             Timer timer = new Timer(100, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     currentLabel.setLocation(currentLabel.getX() + 10, currentLabel.getY());
+                    System.out.println(currentLabel.getText());
                     panel.repaint();
                 }
             });
             timers.add(timer);
-            int delay = rand.nextInt(1000);
-            new Timer(delay, new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    timer.start();
-                }
-            }).start();
+            timer.start();
         }
         keyTyper(labels.get(0));
     }
@@ -49,10 +44,11 @@ public class LabelOperator {
         labels = new ArrayList<JLabel>();
         for (int i = 0; i < textFramesAmount; i++) {
             JLabel label = new JLabel("label" + i);
-            label.setBounds(-100, rand.nextInt(680), 200, 50);
+            label.setBounds((i*-200)-200, rand.nextInt(680), 200, 50);
             label.setForeground(Color.white);
             label.setFont(new Font("Arial", Font.BOLD, 20));
             label.setVisible(true);
+            label.setText(texts[rand.nextInt(texts.length)]);
             panel.add(label);
             labels.add(label);
 
