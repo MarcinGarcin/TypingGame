@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="some bugs created, some bugs fixed It aint much but thats honest work">
       <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false"/>
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
