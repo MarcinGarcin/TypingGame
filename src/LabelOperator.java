@@ -43,7 +43,7 @@ public class LabelOperator {
         labels = new ArrayList<JLabel>();
         for (int i = 0; i < textFramesAmount; i++) {
             JLabel label = new JLabel("label" + i);
-            label.setBounds((i*-200)-200, rand.nextInt(680), 200, 50);
+            label.setBounds((i*-200)-200, rand.nextInt(650)+15, 200, 50);
             label.setForeground(Color.white);
             label.setFont(new Font("Arial", Font.BOLD, 20));
             label.setVisible(true);

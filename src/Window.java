@@ -7,9 +7,10 @@ import java.util.ArrayList;
 public class Window extends JFrame {
     private int x = 0;
     private int width = 1280;
-    private int height = 720;
+    private int height = 800;
     private Color bg = new Color(51, 51, 51);
     private JPanel mainPanel;
+    private JPanel infoPanel;
     private BlinkingLabel startTextArea;
     private ArrayList<JLabel> textAreas;
     private LabelOperator labelOperator;
@@ -17,6 +18,7 @@ public class Window extends JFrame {
     public Window() {
         setupWindow();
         setupMainPanel();
+        setupInfoPanel();
         setupStartTextArea();
         setupKeyListener();
     }
@@ -34,12 +36,21 @@ public class Window extends JFrame {
 
     private void setupMainPanel() {
         mainPanel = new JPanel();
-        mainPanel.setSize(new Dimension((int) (width*1.2), height));
+        mainPanel.setSize(new Dimension((int) (width*1.2), 720));
         mainPanel.setLayout(null);
         mainPanel.setBackground(bg);
         mainPanel.setFocusable(true);
         add(mainPanel);
         pack();
+    }
+    private void setupInfoPanel(){
+        infoPanel = new JPanel();
+        infoPanel.setBounds(0,720,width,80);
+        infoPanel.setBackground(new Color(30,30,30));
+        infoPanel.setLayout(null);
+        add(infoPanel);
+        pack();
+
     }
     private void setupStartTextArea() {
         startTextArea = new BlinkingLabel("Press spacebar to play");
