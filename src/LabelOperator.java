@@ -64,7 +64,6 @@ public class LabelOperator {
 
             @Override
             public void keyTyped(KeyEvent e) {
-                System.out.println(labelText);
                 if (e.getKeyChar() == labelText.charAt(correctText.length())) {
                     correctText += e.getKeyChar();
                     updateLabelColor(currentLabel, correctText, labelText);
