@@ -12,90 +12,80 @@ public class LabelOperator {
     private ArrayList<Timer> timers;
     public ArrayList<JLabel> labels;
     private Random rand;
+    private int textFramesAmount = 2;
 
     public LabelOperator(JPanel panel) {
         this.panel = panel;
+        rand = new Random();
         setupTextArea();
         startGame();
     }
 
     void startGame() {
-        setupTextArea();
         timers = new ArrayList<Timer>();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < textFramesAmount; i++) {
             final int finalIndex = i;
             JLabel currentLabel = labels.get(finalIndex);
-            currentLabel.setText(texts[rand.nextInt(39)]);
+            currentLabel.setText(texts[rand.nextInt(texts.length)]);
             Timer timer = new Timer(100, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     currentLabel.setLocation(currentLabel.getX() + 10, currentLabel.getY());
                     panel.repaint();
-                    panel.revalidate();
                 }
             });
             timers.add(timer);
-            int delay = rand.nextInt(10000);
+            int delay = rand.nextInt(1000);
             new Timer(delay, new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     timer.start();
                 }
             }).start();
         }
-        keyTyper();
+        keyTyper(labels.get(0));
     }
 
     private void setupTextArea() {
         labels = new ArrayList<JLabel>();
-        rand = new Random();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < textFramesAmount; i++) {
             JLabel label = new JLabel("label" + i);
-            label.setBounds(-200, rand.nextInt(680), 200, 50);
+            label.setBounds(-100, rand.nextInt(680), 200, 50);
             label.setForeground(Color.white);
             label.setFont(new Font("Arial", Font.BOLD, 20));
             label.setVisible(true);
-            label.putClientProperty("html.disable", Boolean.FALSE);
             panel.add(label);
             labels.add(label);
+
         }
     }
 
-    private void keyTyper() {
+    private void keyTyper(JLabel currentLabel) {
         panel.setFocusable(true);
         panel.requestFocusInWindow();
         panel.addKeyListener(new KeyAdapter() {
-            private String playerInput = "";
-            private int correctChars = 0;
-            JLabel currentLabel = labels.get(0);
-            char[] labelText = currentLabel.getText().toCharArray();
+            private String correctText = "";
+            String labelText = currentLabel.getText();
 
             @Override
             public void keyTyped(KeyEvent e) {
-                System.out.println(labelText);
-                System.out.println(playerInput);
-
-                char actualChar = e.getKeyChar();
-                if(!(actualChar == ' ')){
-                    playerInput += e.getKeyChar();
+                if (e.getKeyChar() == labelText.charAt(correctText.length())) {
+                    correctText += e.getKeyChar();
+                    updateLabelColor(currentLabel, correctText, labelText);
                 }
-                if (labelText.contains(playerInput)) {
-                    correctChars = playerInput.length();
-                    updateLabelColor(currentLabel, correctChars, incorrectText);
-                    if (correctChars == labelText.length()) {
-                        currentLabel.setLocation(0, currentLabel.getY());
-                        labels.remove(0);
-                        playerInput = "";
-                        correctChars = 0;
-                    }
+                if (labelText.length() == correctText.length()) {
+                    currentLabel.setLocation(-100, currentLabel.getY());
+                    currentLabel.setText(texts[rand.nextInt(texts.length)]);
+                    correctText = "";
+                    labels.remove(0);
+                    labels.add(currentLabel);
+                    keyTyper(labels.get(0));
                 }
             }
         });
     }
 
-    private void updateLabelColor(JLabel label, int correctChars,String incorrectText) {
-        String text = label.getText();
-        String correctText = text.substring(0, correctChars);
-        String remainingText = text.substring(correctChars);
-        label.setForeground(Color.green);
+    private void updateLabelColor(JLabel label, String correctText, String labelText) {
+        String remainingText = labelText.substring(correctText.length());
+        label.setText("<html><font color=green>" + correctText + "</font><font color=white>" + remainingText + "</font></html>");
     }
 }
