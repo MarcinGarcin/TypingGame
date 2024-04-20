@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="some bugs created, some bugs fixed It aint much but thats honest work">
-      <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false"/>
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2024,_06_27_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2024__06_27__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +122,7 @@
       <workItem from="1713500488434" duration="3119000" />
       <workItem from="1713522975412" duration="1751000" />
       <workItem from="1713626794279" duration="964000" />
-      <workItem from="1713642650075" duration="7085000" />
+      <workItem from="1713642650075" duration="7467000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -407,7 +412,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713650431376</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="working game, added panel that will contain scores and time played">
+      <option name="closed" value="true" />
+      <created>1713650925710</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1713650925710</updated>
+    </task>
+    <task id="LOCAL-00038" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1713651081805</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713651081805</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +447,9 @@
     <MESSAGE value="Almost working but not as intended" />
     <MESSAGE value="some bugs created" />
     <MESSAGE value="some bugs created, some bugs fixed It aint much but thats honest work" />
-    <option name="LAST_COMMIT_MESSAGE" value="some bugs created, some bugs fixed It aint much but thats honest work" />
+    <MESSAGE value="working game, added panel that will contain scores and time played" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
