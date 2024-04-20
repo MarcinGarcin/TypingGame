@@ -22,7 +22,7 @@ public class LabelOperator {
     void startGame() {
         setupTextArea();
         timers = new ArrayList<Timer>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             final int finalIndex = i;
             JLabel currentLabel = labels.get(finalIndex);
             currentLabel.setText(texts[rand.nextInt(39)]);
@@ -48,7 +48,7 @@ public class LabelOperator {
     private void setupTextArea() {
         labels = new ArrayList<JLabel>();
         rand = new Random();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             JLabel label = new JLabel("label" + i);
             label.setBounds(-200, rand.nextInt(680), 200, 50);
             label.setForeground(Color.white);
@@ -65,10 +65,9 @@ public class LabelOperator {
         panel.requestFocusInWindow();
         panel.addKeyListener(new KeyAdapter() {
             private String playerInput = "";
-            private String incorrectText = "";
             private int correctChars = 0;
             JLabel currentLabel = labels.get(0);
-            String labelText = currentLabel.getText();
+            char[] labelText = currentLabel.getText().toCharArray();
 
             @Override
             public void keyTyped(KeyEvent e) {
