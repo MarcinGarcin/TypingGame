@@ -12,7 +12,7 @@ public class LabelOperator {
     private ArrayList<Timer> timers;
     public ArrayList<JLabel> labels;
     private Random rand;
-    private int textFramesAmount = 2;
+    private int textFramesAmount = 10;
 
     public LabelOperator(JPanel panel) {
         this.panel = panel;
@@ -26,11 +26,10 @@ public class LabelOperator {
         for (int i = 0; i < textFramesAmount; i++) {
             final int finalIndex = i;
             JLabel currentLabel = labels.get(finalIndex);
-            Timer timer = new Timer(100, new ActionListener() {
+            Timer timer = new Timer(40, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    currentLabel.setLocation(currentLabel.getX() + 10, currentLabel.getY());
-                    System.out.println(currentLabel.getText());
+                    currentLabel.setLocation(currentLabel.getX() + 5, currentLabel.getY());
                     panel.repaint();
                 }
             });
@@ -58,26 +57,35 @@ public class LabelOperator {
     private void keyTyper(JLabel currentLabel) {
         panel.setFocusable(true);
         panel.requestFocusInWindow();
-        panel.addKeyListener(new KeyAdapter() {
+
+        KeyListener keyListener = new KeyAdapter() {
             private String correctText = "";
             String labelText = currentLabel.getText();
 
             @Override
             public void keyTyped(KeyEvent e) {
+                System.out.println(labelText);
                 if (e.getKeyChar() == labelText.charAt(correctText.length())) {
                     correctText += e.getKeyChar();
                     updateLabelColor(currentLabel, correctText, labelText);
                 }
                 if (labelText.length() == correctText.length()) {
-                    currentLabel.setLocation(-100, currentLabel.getY());
+                    currentLabel.setLocation(labels.getLast().getX()-150, currentLabel.getY());
                     currentLabel.setText(texts[rand.nextInt(texts.length)]);
                     correctText = "";
                     labels.remove(0);
                     labels.add(currentLabel);
-                    keyTyper(labels.get(0));
+
+                    panel.removeKeyListener(this);
+
+                    if (!labels.isEmpty()) {
+                        keyTyper(labels.get(0));
+                    }
                 }
             }
-        });
+        };
+
+        panel.addKeyListener(keyListener);
     }
 
     private void updateLabelColor(JLabel label, String correctText, String labelText) {
