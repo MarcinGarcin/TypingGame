@@ -15,7 +15,9 @@ public class LabelOperator {
     private final ArrayList<Timer> timers;
     public final ArrayList<JLabel> labels;
     private final Random rand;
+
     private final int textFramesAmount = 20;
+    private int score = 0;
 
     public LabelOperator(JPanel panel) {
         this.panel = panel;
@@ -73,9 +75,10 @@ public class LabelOperator {
                     if (labelText.length() == correctText.length()) {
                         moveToEnd(currentLabel);
                         correctText = "";
-                        labels.remove(0);
+                        labels.removeFirst();
                         labels.add(currentLabel);
                         panel.removeKeyListener(this);
+                        score += labelText.length();
 
                         if (!labels.isEmpty()) {
                             keyTyper(labels.get(0));
@@ -94,5 +97,8 @@ public class LabelOperator {
     private void updateLabelColor(JLabel label, String correctText, String labelText) {
         String remainingText = labelText.substring(correctText.length());
         label.setText("<html><font color=green>" + correctText + "</font><font color=white>" + remainingText + "</font></html>");
+    }
+    public int getScore(){
+        return score;
     }
 }

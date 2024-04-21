@@ -1,90 +1,138 @@
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
+    import javax.swing.*;
+    import java.awt.*;
+    import java.awt.event.*;
+    import java.util.ArrayList;
 
-public class Window extends JFrame {
-    private int x = 0;
-    private int width = 1280;
-    private int height = 800;
-    private Color bg = new Color(51, 51, 51);
-    private JPanel mainPanel;
-    private JPanel infoPanel;
-    private BlinkingLabel startTextArea;
-    private ArrayList<JLabel> textAreas;
-    private LabelOperator labelOperator;
+    public class Window extends JFrame {
+        private int x = 0;
+        private int width = 1280;
+        private int height = 800;
+        private Color bg = new Color(51, 51, 51);
+        private Font labelsFont = new Font("Arial", Font.BOLD, 20);
+        private JPanel mainPanel;
+        private JPanel infoPanel;
+        private BlinkingLabel startTextArea;
+        public LabelOperator labelOperator;
+        private JLabel scoreLabel;
+        private JLabel timeLabel;
+        private JLabel lettersPerMinuteLabel;
+        private int time = 0;
 
-    public Window() {
-        setupWindow();
-        setupMainPanel();
-        setupInfoPanel();
-        setupStartTextArea();
-        setupKeyListener();
-    }
+        public Window() {
+            setupWindow();
+            setupMainPanel();
+            setupInfoPanel();
+            setupStartTextArea();
+            setupKeyListener();
+        }
 
-    private void setupWindow() {
-        setPreferredSize(new Dimension(width, height));
-        setVisible(true);
-        requestFocusInWindow();
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
-        setFocusable(true);
-    }
-
-
-    private void setupMainPanel() {
-        mainPanel = new JPanel();
-        mainPanel.setSize(new Dimension((int) (width*1.2), 720));
-        mainPanel.setLayout(null);
-        mainPanel.setBackground(bg);
-        mainPanel.setFocusable(true);
-        add(mainPanel);
-        pack();
-    }
-    private void setupInfoPanel(){
-        infoPanel = new JPanel();
-        infoPanel.setBounds(0,720,width,80);
-        infoPanel.setBackground(new Color(30,30,30));
-        infoPanel.setLayout(null);
-        add(infoPanel);
-        pack();
-
-    }
-    private void setupStartTextArea() {
-        startTextArea = new BlinkingLabel("Press spacebar to play");
-        startTextArea.setForeground(Color.white);
-        startTextArea.setFont(new Font("Arial", Font.BOLD, 40));
-        int textWidth = (width - startTextArea.getPreferredSize().width) / 2;
-        int textHeight = (height - startTextArea.getPreferredSize().height) / 2;
-        startTextArea.setBounds(textWidth, textHeight, startTextArea.getPreferredSize().width, startTextArea.getPreferredSize().height);
-        mainPanel.add(startTextArea);
-    }
+        private void setupWindow() {
+            setPreferredSize(new Dimension(width, height));
+            setVisible(true);
+            requestFocusInWindow();
+            setResizable(false);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setLayout(null);
+            setFocusable(true);
+        }
 
 
-    private void setupKeyListener() {
-        addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() == ' ') {
-                    handleSpacebarPress();
-                    removeKeyListener(this);
+        private void setupMainPanel() {
+            mainPanel = new JPanel();
+            mainPanel.setSize(new Dimension((int) (width*1.2), 720));
+            mainPanel.setLayout(null);
+            mainPanel.setBackground(bg);
+            mainPanel.setFocusable(true);
+            add(mainPanel);
+            pack();
+        }
+        private void setupInfoPanel() {
+            scoreLabel = new JLabel();
+            scoreLabel.setText("Score: ");
+            scoreLabel.setForeground(Color.white);
+            scoreLabel.setBounds(width/4-100, 10, 200, 20);
+            scoreLabel.setFont(labelsFont);
+
+            timeLabel = new JLabel();
+            timeLabel.setText("Time : ");
+            timeLabel.setForeground(Color.white);
+            timeLabel.setBounds(width/4*2-100, 10, 200, 20);
+            timeLabel.setFont(labelsFont);
+
+            lettersPerMinuteLabel = new JLabel();
+            lettersPerMinuteLabel.setText("LPM : ");
+            lettersPerMinuteLabel.setForeground(Color.white);
+            lettersPerMinuteLabel.setBounds(width/4*3-100, 10, 200, 20);
+            lettersPerMinuteLabel.setFont(labelsFont);
+
+            infoPanel = new JPanel();
+            infoPanel.setBounds(0, 720, width, 80);
+            infoPanel.setBackground(new Color(30, 30, 30));
+            infoPanel.setLayout(null);
+            infoPanel.add(scoreLabel);
+            infoPanel.add(timeLabel);
+            infoPanel.add(lettersPerMinuteLabel);
+            add(infoPanel);
+            pack();
+        }
+        private void setupStartTextArea() {
+            startTextArea = new BlinkingLabel("Press spacebar to play");
+            startTextArea.setForeground(Color.white);
+            startTextArea.setFont(new Font("Arial", Font.BOLD, 40));
+            int textWidth = (width - startTextArea.getPreferredSize().width) / 2;
+            int textHeight = (height - startTextArea.getPreferredSize().height) / 2;
+            startTextArea.setBounds(textWidth, textHeight, startTextArea.getPreferredSize().width, startTextArea.getPreferredSize().height);
+            mainPanel.add(startTextArea);
+        }
+
+        private void setupKeyListener() {
+            addKeyListener(new KeyAdapter() {
+                public void keyTyped(KeyEvent e) {
+                    if (e.getKeyChar() == ' ') {
+                        handleSpacebarPress();
+                        removeKeyListener(this);
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    private void handleSpacebarPress() {
-        startTextArea.stopBlinking();
-        new LabelOperator(mainPanel);
-        Timer Timer = new Timer(10, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.revalidate();
-                mainPanel.repaint();
-            }
-        });
-        Timer.start();
-    }
+        private void handleSpacebarPress() {
+            startTextArea.stopBlinking();
+            labelOperator = new LabelOperator(mainPanel);
+            updateInfoLabels();
+            Timer Timer = new Timer(10, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    mainPanel.revalidate();
+                    mainPanel.repaint();
+                }
+            });
+            Timer.start();
+        }
+        private void updateScoreLabel(int score) {
+            scoreLabel.setText("Score: " + score);
+        }
 
-}
+        private void updateTimeLabel(int time) {
+            timeLabel.setText("Time: " + time);
+        }
+        private void updateLPMLabel(int time, int score){
+            lettersPerMinuteLabel.setText("LPM: " + (double) (score/time*60));
+
+        }
+
+        private void updateInfoLabels() {
+            Timer infoTimer = new Timer(10, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    time++;
+                    updateScoreLabel(labelOperator.getScore());
+                    updateTimeLabel(time);
+                    updateLPMLabel(time, labelOperator.getScore());
+                }
+            });
+            infoTimer.start();
+        }
+
+    }
