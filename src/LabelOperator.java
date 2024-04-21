@@ -15,30 +15,58 @@ public class LabelOperator {
     private final ArrayList<Timer> timers;
     public final ArrayList<JLabel> labels;
     private final Random rand;
-
     private final int textFramesAmount = 20;
     private int score = 0;
+    private JLabel endGameLabel;
+    private JButton newGameButton;
+    private Window window;
+    private float gameHardness = 1;
+    private float initLabelSpeed = 5;
 
-    public LabelOperator(JPanel panel) {
+    public LabelOperator(Window window,JPanel panel) {
+        this.window = window;
         this.panel = panel;
         rand = new Random();
         labels = new ArrayList<>();
         timers = new ArrayList<>();
         setupTextArea();
+        setupLoseArea();
         startGame();
     }
 
     private void startGame() {
         for (int i = 0; i < textFramesAmount; i++) {
             JLabel currentLabel = labels.get(i);
-            Timer timer = new Timer(40, e -> {
-                currentLabel.setLocation(currentLabel.getX() + 5, currentLabel.getY());
+            Timer timer = new Timer(50, e -> {
+                gameHardness += 0.00003;
+                System.out.println(Math.round(initLabelSpeed*gameHardness));
+                currentLabel.setLocation(currentLabel.getX() + Math.round(initLabelSpeed*gameHardness), currentLabel.getY());
+                if (currentLabel.getX() >= 1280) {
+                    endGame();
+                }
                 panel.repaint();
+                panel.revalidate();
             });
             timers.add(timer);
             timer.start();
         }
         keyTyper(labels.get(0));
+    }
+
+    private void setupLoseArea() {
+        endGameLabel = new JLabel("Game Over");
+        endGameLabel.setBounds(450, 300, 500, 50);
+        endGameLabel.setForeground(Color.RED);
+        endGameLabel.setFont(new Font("Arial", Font.BOLD, 50));
+        endGameLabel.setVisible(false);
+        panel.add(endGameLabel);
+
+        newGameButton = new JButton("New Game");
+        newGameButton.setBounds(500, 400, 200, 50);
+        newGameButton.setFont(new Font("Arial", Font.BOLD, 20));
+        newGameButton.setVisible(false);
+        newGameButton.addActionListener(e -> window.startNewGame());
+        panel.add(newGameButton);
     }
 
     private void setupTextArea() {
@@ -100,5 +128,12 @@ public class LabelOperator {
     }
     public int getScore(){
         return score;
+    }
+    private void endGame() {
+        for (Timer timer : timers) {
+            timer.stop();
+        }
+        endGameLabel.setVisible(true);
+        newGameButton.setVisible(true);
     }
 }

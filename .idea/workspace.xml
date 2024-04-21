@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="bug fixes">
+    <list default="true" id="18611680-b2d9-48a4-a010-4a246e192dc9" name="Changes" comment="add readme images">
+      <change afterPath="$PROJECT_DIR$/images/image3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/image1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/image1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/image2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/image2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LabelOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelOperator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
@@ -119,7 +122,8 @@
       <workItem from="1713522975412" duration="1751000" />
       <workItem from="1713626794279" duration="964000" />
       <workItem from="1713642650075" duration="9041000" />
-      <workItem from="1713709534335" duration="1775000" />
+      <workItem from="1713709534335" duration="2040000" />
+      <workItem from="1713730395596" duration="4649000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -473,7 +477,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713652633308</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Almost working infoLabels">
+      <option name="closed" value="true" />
+      <created>1713711567750</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1713711567750</updated>
+    </task>
+    <task id="LOCAL-00046" summary="add readme images">
+      <option name="closed" value="true" />
+      <created>1713735044791</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1713735044791</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,9 +525,10 @@
     <MESSAGE value="some bugs created, some bugs fixed It aint much but thats honest work" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="working game, added panel that will contain scores and time played" />
-    <MESSAGE value="add readme images" />
     <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
+    <MESSAGE value="Almost working infoLabels" />
+    <MESSAGE value="add readme images" />
+    <option name="LAST_COMMIT_MESSAGE" value="add readme images" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

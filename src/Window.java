@@ -2,7 +2,6 @@
     import javax.swing.*;
     import java.awt.*;
     import java.awt.event.*;
-    import java.util.ArrayList;
 
     public class Window extends JFrame {
         private int x = 0;
@@ -16,7 +15,7 @@
         public LabelOperator labelOperator;
         private JLabel scoreLabel;
         private JLabel timeLabel;
-        private JLabel lettersPerMinuteLabel;
+        private JLabel lettersPerSecondsLabel;
         private int time = 0;
 
         public Window() {
@@ -60,11 +59,11 @@
             timeLabel.setBounds(width/4*2-100, 10, 200, 20);
             timeLabel.setFont(labelsFont);
 
-            lettersPerMinuteLabel = new JLabel();
-            lettersPerMinuteLabel.setText("LPM : ");
-            lettersPerMinuteLabel.setForeground(Color.white);
-            lettersPerMinuteLabel.setBounds(width/4*3-100, 10, 200, 20);
-            lettersPerMinuteLabel.setFont(labelsFont);
+            lettersPerSecondsLabel = new JLabel();
+            lettersPerSecondsLabel.setText("LPM : ");
+            lettersPerSecondsLabel.setForeground(Color.white);
+            lettersPerSecondsLabel.setBounds(width/4*3-100, 10, 200, 20);
+            lettersPerSecondsLabel.setFont(labelsFont);
 
             infoPanel = new JPanel();
             infoPanel.setBounds(0, 720, width, 80);
@@ -72,7 +71,7 @@
             infoPanel.setLayout(null);
             infoPanel.add(scoreLabel);
             infoPanel.add(timeLabel);
-            infoPanel.add(lettersPerMinuteLabel);
+            infoPanel.add(lettersPerSecondsLabel);
             add(infoPanel);
             pack();
         }
@@ -99,40 +98,43 @@
 
         private void handleSpacebarPress() {
             startTextArea.stopBlinking();
-            labelOperator = new LabelOperator(mainPanel);
+            labelOperator = new LabelOperator(this,mainPanel);
             updateInfoLabels();
-            Timer Timer = new Timer(10, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mainPanel.revalidate();
-                    mainPanel.repaint();
-                }
-            });
-            Timer.start();
+        }
+        public void startNewGame() {
+            mainPanel.removeAll();
+            labelOperator = new LabelOperator(this,mainPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+            time = 0;
         }
         private void updateScoreLabel(int score) {
             scoreLabel.setText("Score: " + score);
         }
 
         private void updateTimeLabel(int time) {
-            timeLabel.setText("Time: " + time);
-        }
-        private void updateLPMLabel(int time, int score){
-            lettersPerMinuteLabel.setText("LPM: " + (double) (score/time*60));
+            int minutes = time / 60;
+            int seconds = time % 60;
+            timeLabel.setText(String.format("Time: %d:%02d", minutes, seconds));
 
         }
-
+        private void updateLPSLabel(int time, int score){
+            time = time/1000;
+            if(time == 0){
+                time = 1;
+            }
+            lettersPerSecondsLabel.setText(String.format("LPS: %.2f", (double) score / time));
+        }
         private void updateInfoLabels() {
-            Timer infoTimer = new Timer(10, new ActionListener() {
+            Timer infoTimer = new Timer(1, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     time++;
                     updateScoreLabel(labelOperator.getScore());
-                    updateTimeLabel(time);
-                    updateLPMLabel(time, labelOperator.getScore());
+                    updateTimeLabel(time/1000);
+                    updateLPSLabel(time, labelOperator.getScore());
                 }
             });
             infoTimer.start();
         }
-
     }
