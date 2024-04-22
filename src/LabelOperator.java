@@ -19,7 +19,6 @@ public class LabelOperator {
     private final int textFramesAmount = 20;
     private int score = 0;
     private JLabel endGameLabel;
-    private JButton newGameButton;
     private Window window;
     private float gameHardness = 1;
     private float initLabelSpeed = 5;
@@ -40,7 +39,6 @@ public class LabelOperator {
             JLabel currentLabel = labels.get(i);
             Timer timer = new Timer(50, e -> {
                 gameHardness += 0.00003;
-                System.out.println(Math.round(initLabelSpeed*gameHardness));
                 currentLabel.setLocation(currentLabel.getX() + Math.round(initLabelSpeed*gameHardness), currentLabel.getY());
                 if (currentLabel.getX() >= 1280) {
                     endGame();
