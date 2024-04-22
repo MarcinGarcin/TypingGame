@@ -40,7 +40,7 @@ public class LabelOperator {
             Timer timer = new Timer(50, e -> {
                 gameHardness += 0.00003;
                 currentLabel.setLocation(currentLabel.getX() + Math.round(initLabelSpeed*gameHardness), currentLabel.getY());
-                if (currentLabel.getX() >= 1280) {
+                if (currentLabel.getX() >= window.getWidth()) {
                     endGame();
                 }
                 panel.repaint();
