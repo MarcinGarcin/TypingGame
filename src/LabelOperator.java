@@ -12,6 +12,7 @@ public class LabelOperator {
             "rug", "desk", "pencil", "pen", "eraser", "notebook", "backpack", "glasses", "keys", "wallet"
     };
     private final JPanel panel;
+    private HoverLabelPanel hoverLabel;
     private final ArrayList<Timer> timers;
     public final ArrayList<JLabel> labels;
     private final Random rand;
@@ -61,12 +62,9 @@ public class LabelOperator {
         endGameLabel.setVisible(false);
         panel.add(endGameLabel);
 
-        newGameButton = new JButton("New Game");
-        newGameButton.setBounds(500, 400, 200, 50);
-        newGameButton.setFont(new Font("Arial", Font.BOLD, 20));
-        newGameButton.setVisible(false);
-        newGameButton.addActionListener(e -> window.startNewGame());
-        panel.add(newGameButton);
+        hoverLabel = new HoverLabelPanel(window,500, 400, 200, 50);
+        hoverLabel.setVisible(false);
+        panel.add(hoverLabel);
     }
 
     private void setupTextArea() {
@@ -132,8 +130,9 @@ public class LabelOperator {
     private void endGame() {
         for (Timer timer : timers) {
             timer.stop();
+            window.stopTime();
         }
         endGameLabel.setVisible(true);
-        newGameButton.setVisible(true);
+        hoverLabel.setVisible(true);
     }
 }

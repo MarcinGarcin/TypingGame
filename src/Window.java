@@ -17,6 +17,7 @@
         private JLabel timeLabel;
         private JLabel lettersPerSecondsLabel;
         private int time = 0;
+        private Timer infoTimer;
 
         public Window() {
             setupWindow();
@@ -101,13 +102,7 @@
             labelOperator = new LabelOperator(this,mainPanel);
             updateInfoLabels();
         }
-        public void startNewGame() {
-            mainPanel.removeAll();
-            labelOperator = new LabelOperator(this,mainPanel);
-            mainPanel.revalidate();
-            mainPanel.repaint();
-            time = 0;
-        }
+
         private void updateScoreLabel(int score) {
             scoreLabel.setText("Score: " + score);
         }
@@ -118,6 +113,7 @@
             timeLabel.setText(String.format("Time: %d:%02d", minutes, seconds));
 
         }
+
         private void updateLPSLabel(int time, int score){
             time = time/1000;
             if(time == 0){
@@ -125,8 +121,9 @@
             }
             lettersPerSecondsLabel.setText(String.format("LPS: %.2f", (double) score / time));
         }
+
         private void updateInfoLabels() {
-            Timer infoTimer = new Timer(1, new ActionListener() {
+            infoTimer = new Timer(1, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     time++;
@@ -136,5 +133,17 @@
                 }
             });
             infoTimer.start();
+        }
+
+        public void startNewGame() {
+            mainPanel.removeAll();
+            labelOperator = new LabelOperator(this,mainPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+            time = 0;
+        }
+
+        public void stopTime(){
+            infoTimer.stop();
         }
     }
