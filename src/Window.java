@@ -141,9 +141,12 @@
             mainPanel.revalidate();
             mainPanel.repaint();
             time = 0;
+            updateInfoLabels();
         }
 
         public void stopTime(){
+
             infoTimer.stop();
+
         }
     }

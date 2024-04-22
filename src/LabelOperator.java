@@ -126,6 +126,7 @@ public class LabelOperator {
         return score;
     }
     private void endGame() {
+        score = 0;
         for (Timer timer : timers) {
             timer.stop();
             window.stopTime();
